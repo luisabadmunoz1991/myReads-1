@@ -1,4 +1,5 @@
 import React from 'react'
+import { Component } from 'react'
 import * as BooksAPI from './BooksAPI'
 
 function makeImageUrl(id) {
@@ -8,7 +9,7 @@ function makeImageUrl(id) {
   return imageUrl
 }
 
-class Book extends React.Component {
+class Book extends Component {
 
   handleChange(event) {
     const newShelf = event.target.value
