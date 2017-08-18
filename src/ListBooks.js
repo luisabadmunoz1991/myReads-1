@@ -2,22 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import BookShelf from './BookShelf'
 
-function ListBooksTitle(props) {
-  return (
-    <div className="list-books-title">
-      <h1>MyReads</h1>
-    </div>
-  )
-}
-
-function OpenSearch(props) {
-  return (
-    <div className="open-search">
-      <Link to="/search">Add a book</Link>
-    </div>
-  )
-}
-
 class ListBooks extends React.Component {
 
   render() {
@@ -29,7 +13,9 @@ class ListBooks extends React.Component {
 
     return (
       <div className="list-books">
-        <ListBooksTitle />
+        <div className="list-books-title">
+          <h1>MyReads</h1>
+        </div>
         <div className="list-books-content">
           <div>
             {shelves.map(
@@ -45,7 +31,9 @@ class ListBooks extends React.Component {
             )}
           </div>
         </div>
-        <OpenSearch />
+        <div className="open-search">
+          <Link to="/search">Add a book</Link>
+        </div>
       </div>
     )
   }
