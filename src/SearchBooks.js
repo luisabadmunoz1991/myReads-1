@@ -22,18 +22,21 @@ class SearchBooks extends React.Component {
   }
 
   updateSearch = (searchTerm) => {
-    this.setState({ searchTerm: searchTerm.trim() })
-    this.state.searchTerm && BooksAPI.search(this.state.searchTerm, 20).then((books) => {
-      this.setState((prevState) => {
-        return {
-          matchingBooks: books.map((book) => {
-            book.shelf = this.findBookShelf(book.title)
-            return book
+    this.setState(
+      { searchTerm: searchTerm.trim() },
+      () => this.state.searchTerm && BooksAPI.search(searchTerm, 20)
+        .then((books) => {
+          this.setState((prevState) => {
+            return {
+              matchingBooks: books.map((book) => {
+                book.shelf = this.findBookShelf(book.title)
+                return book
+              })
+            }
           })
-        }
-      })
-    })
-  }
+        })
+    )
+   }
 
   handleChange = (title, shelf) => {
     this.setState((prevState) => {
