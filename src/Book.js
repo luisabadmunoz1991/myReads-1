@@ -35,7 +35,9 @@ class Book extends Component {
               </div>
         </div>
         <div className="book-title">{this.props.title}</div>
-        <div className="book-authors">{this.props.authors[0]}</div>
+        <div className="book-authors">{
+          Array.isArray(this.props.authors) ? this.props.authors[0] : this.props.authors
+        }</div>
       </div>
     )
   }
