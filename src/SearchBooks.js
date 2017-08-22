@@ -37,7 +37,7 @@ class SearchBooks extends React.Component {
   updateSearch = (searchTerm) => {
     this.setState(
       { searchTerm: searchTerm.trim() },
-      () => this.state.searchTerm && this.state.searchTerm != '' 
+      () => this.state.searchTerm && this.state.searchTerm !== '' 
         ? this.matchBooks(searchTerm)
         : this.setState({ matchingBooks: [] })
     )
