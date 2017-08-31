@@ -16,6 +16,7 @@ class Book extends Component {
     event.preventDefault()
     BooksAPI.update({ id: this.props.id }, newShelf)
     this.props.onChangeShelf(this.props.title, newShelf)
+    this.forceUpdate()
   }
 
   render() {
